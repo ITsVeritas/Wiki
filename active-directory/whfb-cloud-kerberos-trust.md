@@ -43,13 +43,13 @@ MS Documentation: https://learn.microsoft.com/azure/active-directory/authenticat
 > Note: Entra Kerberos must be enabled in EVERY domain across ALL forests that contain users accounts synced to Entra ID and expected to utilize WHfB.
 {.is-info}
 
-The easiest place to configure Azure AD Kerboros from is the server that runs Azure AD Connect, as this is considered a tier 0 server, and you will need to utilize Domain Admin and Global Admin/Hybrid Identity Administrator credentials. The required PowerShell module will also be present in the AADC install directory.
+The easiest place to configure Azure AD Kerberos from is the server that runs Azure AD Connect, as this is considered a tier 0 server, and you will need to utilize Domain Admin and Global Admin/Hybrid Identity Administrator credentials. The required PowerShell module will also be present in the AADC install directory.
 
 1. Import the module
 ```powershell
 Import-Module -FullyQualifiedName 'C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\AzureAdKerberos.psd1'
 ```
-2. Cofigure Entra Kerberos (replace Domain with your AD domain name, and UserPrincipalName with the UPN of your GA account)
+2. Configure Entra Kerberos (replace Domain with your AD domain name, and UserPrincipalName with the UPN of your GA account)
 ```powershell
 Set-AzureADKerberosServer -Domain 'ad.domain.tld' -UserPrincipalName 'ga@domain.onmicrosoft.com'
 ```
